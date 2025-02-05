@@ -91,6 +91,19 @@ Ensure the app targets Android 11 (API level 30) or higher for eSIM functionalit
 
 ---
 
+## 💡 Example Project
+
+You can find a complete example implementation in the repository under the [`/example`](https://github.com/Al-Taie/expo-esim/tree/main/example) folder.
+
+To run the example:
+
+```bash
+cd example
+npx expo run:android
+```
+
+---
+
 ## 🐛 Reporting Issues
 
 Found a bug or want to request a feature? [Open an issue here](https://github.com/Al-Taie/expo-esim/issues).
