@@ -1,6 +1,6 @@
-import { NativeModule, requireNativeModule } from 'expo';
+import { requireNativeModule } from 'expo';
 
-declare class ExpoEsimModule extends NativeModule {
+declare class ExpoEsimModule {
   install(activationCode: string): Promise<string>;
   scanQrCode(): Promise<string>;
 }
