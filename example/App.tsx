@@ -1,32 +1,33 @@
 import ExpoEsimModule from 'expo-esim';
 import { useState } from 'react';
 import { Button, SafeAreaView, Text, TextInput, TouchableOpacity, View, StyleSheet } from 'react-native';
+import { Alert } from 'react-native';
 
 export default function App() {
   const [activationCode, setActivationCode] = useState('');
 
   const installEsim = async () => {
     if (!activationCode) {
-      console.error('Error: Activation code is empty!');
+      Alert.alert('Error', 'Activation code is empty!');
       return;
     }
 
     ExpoEsimModule.install(activationCode)
       .then((result) => {
-        console.log('Success:', result);
+        Alert.alert('Success', JSON.stringify(result));
       })
       .catch((error) => {
-        console.error('Error:', error);
+        Alert.alert('Error', JSON.stringify(error));
       });
   };
 
   const scanEsimQrCode = async () => {
     ExpoEsimModule.scanQrCode()
       .then((result) => {
-        console.log('Success:', result);
+        Alert.alert('Success', JSON.stringify(result));
       })
       .catch((error) => {
-        console.error('Error:', error);
+        Alert.alert('Error', JSON.stringify(error));
       });
   };
 

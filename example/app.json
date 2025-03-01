@@ -18,6 +18,9 @@
         "backgroundColor": "#ffffff"
       },
       "package": "expo.modules.esim.example"
+    },
+    "ios": {
+      "bundleIdentifier": "expo.modules.esim.example"
     }
   }
 }
