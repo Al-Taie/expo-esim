@@ -11,7 +11,7 @@ class CarrierEuiccProvisioningService : Service() {
 
     override fun onBind(intent: Intent?): IBinder = binder
 
-    private val binder = object : ICarrierEuiccProvisioningService.Stub () {
+    private val binder = object : ICarrierEuiccProvisioningService.Stub() {
         override fun getActivationCode(callback: IGetActivationCodeCallback?) {
             callback?.onSuccess(activationCode)
         }
@@ -26,7 +26,10 @@ class CarrierEuiccProvisioningService : Service() {
             private set
 
         fun setActivationCode(value: String) {
-            activationCode = value
+            activationCode = if (value.startsWith("LPA:"))
+                value
+            else
+                "LPA:$value"
         }
     }
 }
