@@ -103,12 +103,18 @@ class ExpoEsimModule : Module() {
     private fun handleResult(result: ActivityResult) {
         when (result.resultCode) {
             Activity.RESULT_OK -> success()
-            Activity.RESULT_CANCELED -> userCanceledError()
+            Activity.RESULT_CANCELED -> if (isSamsungDevice())
+                userCanceledError()
+            else
+                successNonSamsung()
+
             else -> unknownError()
         }
     }
 
     private fun success() = currentPromise?.resolve(result = "eSIM installed successfully")
+    private fun successNonSamsung() =
+        currentPromise?.resolve(result = "eSIM installation opened successfully")
 
     private fun unknownError() = failure(
         code = "UNKNOWN_ERROR",
