@@ -32,11 +32,12 @@ export default function App() {
   };
 
   const setTestActivationCode = () => {
-    setActivationCode('1$prod.smdp-plus.rsp.goog$052X-UFXS-CQIY-PNGL');
+    setActivationCode('LPA:1$mka.prod.ondemandconnectivity.com$2A393J3FEQY5JCTNY7RNU9CIFP');
   };
 
   return (
     <SafeAreaView style={styles.container}>
+      <Text style={styles.title}>is eSIM Supported: {ExpoEsimModule.isEsimSupported() ? 'Yes' : 'No'}</Text>
       <Text style={styles.title}>Activation Code</Text>
       <TextInput
         style={styles.input}
